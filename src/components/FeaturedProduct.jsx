@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"; // Import heart icons
-import { FiShoppingCart } from "react-icons/fi"; // Import cart icon
-import productsData from "../json/data.json"; // Ensure the correct path to your JSON file
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"; // Heart icons
+import { FiShoppingCart } from "react-icons/fi"; // Cart icon
+import productsData from "../json/data.json"; // Ensure the correct path to the JSON file
 
 function FeaturedProducts({ addToCart }) {
   const [likedProducts, setLikedProducts] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
-  // Toggle like status
+  // Toggle the like status of a product
   const toggleLike = (productId) => {
     setLikedProducts((prev) =>
       prev.includes(productId)
@@ -15,16 +16,14 @@ function FeaturedProducts({ addToCart }) {
     );
   };
 
-  const [showAll, setShowAll] = useState(false);
-
-  // Display either 4 products or up to 20 products
+  // Determine the products to display
   const displayedProducts = showAll
     ? productsData.products.slice(0, 20)
     : productsData.products.slice(0, 4);
 
   return (
     <section className="mx-auto px-4 py-16 max-w-screen-xl">
-      {/* Title */}
+      {/* Section Title */}
       <h1 className="text-4xl font-bold text-center mb-10">
         Featured Products
       </h1>
@@ -48,7 +47,7 @@ function FeaturedProducts({ addToCart }) {
                   {product.label}
                 </span>
               )}
-              {/* Heart Icon */}
+              {/* Like Button */}
               <button
                 onClick={() => toggleLike(product.id)}
                 className="absolute top-2 right-2 bg-white text-gray-500 p-2 rounded-full shadow hover:text-red-500"
@@ -62,12 +61,12 @@ function FeaturedProducts({ addToCart }) {
             </div>
 
             {/* Product Details */}
-            <div className="p-4 mt-auto">
+            <div className="p-4 flex flex-col mt-auto">
               <h2 className="text-lg font-semibold">{product.title}</h2>
               <p className="text-gray-500 text-sm">{product.description}</p>
               <div className="flex justify-between items-center mt-4">
                 <span className="text-lg font-bold">${product.price}</span>
-                {/* Cart Icon */}
+                {/* Add to Cart Button */}
                 <button
                   onClick={() => addToCart(product)}
                   className="text-gray-500 hover:text-orange-500 transition"
@@ -84,7 +83,7 @@ function FeaturedProducts({ addToCart }) {
       <div className="text-center mt-10">
         <button
           onClick={() => setShowAll(!showAll)}
-          className="border-none outline-none px-6 py-2 text-xl bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+          className="px-6 py-2 text-xl bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
         >
           {showAll ? "View Less" : "View All Products"}
         </button>

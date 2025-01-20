@@ -4,7 +4,7 @@ import heroImage from "../assets/a2.jpg"; // Replace with your image path
 function Hero() {
   return (
     <section className="flex flex-col lg:flex-row w-full h-[70vh]">
-      {/* Left Image */}
+      {/* Left Image Section */}
       <div className="flex-1">
         <img
           src={heroImage}
@@ -13,10 +13,10 @@ function Hero() {
         />
       </div>
 
-      {/* Right Content */}
+      {/* Right Content Section */}
       <div className="flex-1 flex flex-col justify-center bg-blue-50 p-8">
         <h1 className="text-4xl font-bold mb-4">
-          <span className="text-orange-600">Retail</span> shop owners
+          <span className="text-orange-600">Retail</span> Shop Owners
         </h1>
         <p className="text-gray-600 mb-6">
           Credits go to Unsplash and FreePik websites for images used in this
@@ -24,7 +24,7 @@ function Hero() {
         </p>
         <a
           href="#"
-          className="hover:text-orange-600 font-medium"
+          className="inline-block text-lg text-orange-600 hover:text-orange-700 font-medium transition"
         >
           EXPLORE PRODUCTS
         </a>

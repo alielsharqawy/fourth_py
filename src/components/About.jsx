@@ -35,19 +35,19 @@ function About() {
 
   return (
     <section className="container mx-auto px-6 py-16">
-      {/* Title */}
+      {/* Section Title */}
       <h1 className="text-4xl font-bold text-center mb-10">
         Get started with <span className="text-orange-600">Little </span>Fashion
       </h1>
 
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
         {/* Left Navigation */}
-        <div className="flex flex-col text-left w-full lg:w-1/4">
+        <div className="flex flex-col w-full lg:w-1/4">
           <ul className="space-y-4">
             {sections.map((section) => (
               <li
                 key={section.id}
-                className={`cursor-pointer font-medium text-2xl border-l-4 pl-4 ${
+                className={`cursor-pointer font-medium text-xl border-l-4 pl-4 ${
                   activeSection.id === section.id
                     ? "text-orange-600 border-orange-600"
                     : "text-gray-600 border-transparent hover:text-orange-600"
@@ -61,21 +61,24 @@ function About() {
         </div>
 
         {/* Center Image */}
-        <div className="w-full">
+        <div className="w-full lg:w-1/3">
           <img
             src={activeSection.image}
             alt={activeSection.title}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover rounded-lg shadow"
           />
         </div>
 
         {/* Right Content */}
-        <div className="w-full lg:w-1/3 text-left">
+        <div className="w-full lg:w-1/3">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">
             {activeSection.heading}
           </h2>
           <p className="text-gray-600 mb-6">{activeSection.content}</p>
-          <a href="#" className="hover:text-orange-600 font-medium ">
+          <a
+            href="#"
+            className="text-orange-600 hover:text-orange-700 font-medium transition"
+          >
             LEARN MORE ABOUT US
           </a>
         </div>
