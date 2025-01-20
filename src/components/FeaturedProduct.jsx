@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"; // Heart icons
-import { FiShoppingCart } from "react-icons/fi"; // Cart icon
-import productsData from "../json/data.json"; // Ensure the correct path to the JSON file
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"; 
+import { FiShoppingCart } from "react-icons/fi"; 
+import productsData from "../json/data.json"; 
 
 function FeaturedProducts({ addToCart }) {
   const [likedProducts, setLikedProducts] = useState([]);
